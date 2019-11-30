@@ -96,7 +96,7 @@ public class JdbcTemplate {
         try (
                 Connection connection = dataSource.getConnection();
                 PreparedStatement statement = setter.set(connection.prepareStatement(query));
-                ResultSet resultSet = statement.executeQuery(query);
+                ResultSet resultSet = statement.executeQuery();
         ) {
             return function.execute(resultSet);
         }
